@@ -31,4 +31,10 @@ Finalmente, para desmontar el contenedor, se usa el comando:
 ```
 sudo docker compose down --remove-orphans
 ```
+## Diagrama de secuencia
 
+![sequence](<readme_files/Diagrama de flujo SSCatFacts.jpg>)
+
+## Diagrama Entidad-Relación
+
+![er](<readme_files/Diagrama ER SSCatFacts.jpg>)
