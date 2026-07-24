@@ -8,6 +8,7 @@ import FactsList from './components/landing/FactsList';
 import CreateAccount from './components/login/CreateAccount';
 import Likes from './components/landing/Likes';
 import Popular from './components/landing/Popular';
+import Welcome from './components/landing/Welcome';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/register" element={<CreateAccount/>}/>
           <Route path="/index" element={<Index/>}>
+            <Route index element={<Welcome/>}/>
             <Route path="facts" element={<FactsList/>}/>
             <Route path="likes" element={<Likes/>}/>
             <Route path="popular" element={<Popular/>}/>

@@ -47,6 +47,11 @@ function Login()
      return (
         <div className="flex justify-center items-center h-screen">
             <form  className="form" onSubmit={handleSubmit}>
+                <div className="p-5 flex justify-center items-center">
+                    <h1 className="text-2xl">
+                        Welcome to SSCatFacts!
+                    </h1>
+                </div>
                 <div className="w-full max-w-sm min-w-[200px]">
                     <input
                         className="

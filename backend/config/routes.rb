@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   post "/api/createuser", to: "users#create"
   get "/api/checkuserlogin", to: "sessions#is_logged_in?"
   delete "/api/logout", to: "sessions#destroy"
-  post "/api/register_like", to:"facts#like"
+  post "/api/register_like", to: "facts#like"
+  get "/api/get_user_likes", to: "facts#user_likes"
+  get "/api/get_popular_facts", to: "facts#popular_facts"
 
 end

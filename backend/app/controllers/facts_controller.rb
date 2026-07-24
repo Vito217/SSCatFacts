@@ -44,6 +44,33 @@ class FactsController < ApplicationController
         end
     end
 
+    # use this function to get current user's likes
+    def user_likes
+
+        # Needs user session
+        if session[:user_id]
+            user = User.find(session[:user_id])
+            render json: { likes: user.likes.as_json(include: :fact) }
+        else
+            render json: {message: 'Not logged in'}, status: :unauthorized
+        end
+    
+    end
+
+    # use this function to get all liked facts, sorted by most popular
+    def popular_facts
+
+        # Needs user session
+        if session[:user_id]
+            
+            facts = Fact.left_joins(:likes).group(:id).order(Arel.sql("COUNT (likes.id) DESC"))
+            render json: {facts: facts}, status: :ok
+
+        else
+            render json: {message: 'Not logged in'}, status: :unauthorized
+        end
+    end
+
     private
 
     # filter fact params
