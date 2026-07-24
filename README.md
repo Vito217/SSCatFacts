@@ -7,7 +7,7 @@ Bienvenidos al repositorio de mi prueba técnica de SSCatFacts para SSIndex. El 
 Se requiere tener instaladas las siguientes tecnologías que fueron utilizadas:
 
 * Ruby on Rails
-* ReactJS
+* ReactJS + Tailwind CSS
 * PostgreSQL
 * Docker y Docker Compose
 
