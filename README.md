@@ -7,7 +7,7 @@ Bienvenidos al repositorio de mi prueba técnica de SSCatFacts para SSIndex. El 
 Se requiere tener instaladas las siguientes tecnologías que fueron utilizadas:
 
 * Ruby on Rails
-* ReactJS + Tailwind CSS
+* ReactJS 
 * PostgreSQL
 * Docker y Docker Compose
 
@@ -45,6 +45,14 @@ Finalmente, para correr los test del backend, se ejecuta el comando:
 
 ```
 sudo docker compose run backend rails test
+```
+
+### Testing en ReactJS
+
+Teniendo el contenedor funcionando, se pueden ejecutar los test usando el comando:
+
+```
+sudo docker compose run frontend npm test
 ```
 
 ## Decisiones de diseño
