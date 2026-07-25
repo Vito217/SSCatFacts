@@ -4,7 +4,7 @@ Bienvenidos al repositorio de mi prueba técnica de SSCatFacts para SSIndex. El 
 
 ## Requisitos
 
-Se requiere tener instaladas las siguientes tecnologías que fueron utilizadas:
+Las siguientes tecnologías fueron utilizadas para este proyecto:
 
 * Ruby on Rails
 * ReactJS 
@@ -53,6 +53,26 @@ Teniendo el contenedor funcionando, se pueden ejecutar los test usando el comand
 
 ```
 sudo docker compose run frontend npm test
+```
+
+## Herramientas Linter
+
+### Linter en Ruby on Rails
+
+La herramienta utilizada es Rubocop. El siguiente comando es utilizado para explorar correcciones en el código:
+
+```
+cd backend
+bundle exec rubocop . --autocorrect
+```
+
+### Linter en React JS
+
+La herramienta utilizada es ESLint. Se definió el siguiente comando para revisar el código:
+
+```
+cd frontend
+npm run lint:fix
 ```
 
 ## Decisiones de diseño
