@@ -22,14 +22,29 @@ sudo docker compose up --build
 Una vez que haya terminado la instalación y esté funcionando la base de datos, se deben hacer las migraciones de rails hacia postgresql:
 
 ```
-sudo docker compose run backend rails db:create
-sudo docker compose run backend rails db:migrate
+sudo docker compose run backend rails db:create db:migrate
 ```
 
 Finalmente, para desmontar el contenedor, se usa el comando:
 
 ```
 sudo docker compose down --remove-orphans
+```
+
+## Testing
+
+### Testing en Ruby on Rails
+
+Tras ejecutar el contenedor y crear la base de datos, esta se debe preparar para realizar test, usando el comando:
+
+```
+sudo docker compose run backend rails db:prepare
+```
+
+Finalmente, para correr los test del backend, se ejecuta el comando:
+
+```
+sudo docker compose run backend rails test
 ```
 
 ## Decisiones de diseño
