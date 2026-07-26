@@ -13,19 +13,19 @@ Las siguientes tecnologías fueron utilizadas para este proyecto:
 
 ## Ejecución y deploy local
 
-Tras descargar el proyecto, dirigirse a la carpeta raíz del proyecto y ejecutar el comando
+A continuación se presentan las instrucciones para ejecutar el proyecto localmente. Esto requiere que se tenga instalado Docker Compose. Tras descargar el proyecto, dirigirse a la carpeta raíz del proyecto y ejecutar el siguiente comando.
 
 ```
 sudo docker compose up --build
 ```
 
-Una vez que haya terminado la instalación y esté funcionando la base de datos, se deben hacer las migraciones de rails hacia postgresql:
+El comando debería instalar las dependencias especificadas para cada proyecto (frontend, backend y base de datos). En caso de fallas, se recomienda tener instalado postgresql, npm y rails. Una vez que haya terminado la instalación y esté funcionando la base de datos, se deben hacer las migraciones de rails hacia postgresql:
 
 ```
 sudo docker compose run backend rails db:create db:migrate
 ```
 
-Finalmente, para desmontar el contenedor, se usa el comando:
+Esto crea la base de datos junto con las tablas especificadas en el proyecto backend, esto es, los modelos definidos en la carpeta backend/app/models. Las migraciones se hacen en base a los archivos ubicados en la carpeta backend/db/migrate. Finalmente, si se desea desmontar el contenedor, se usa el comando:
 
 ```
 sudo docker compose down --remove-orphans
@@ -35,31 +35,35 @@ sudo docker compose down --remove-orphans
 
 ### Testing en Ruby on Rails
 
-Tras ejecutar el contenedor y crear la base de datos, esta se debe preparar para realizar test, usando el comando:
+Tras ejecutar el contenedor y crear la base de datos, se habrá creado automáticamente una base de datos específica para test, llamada backend_test. Esta base de datos se debe preparar para realizar test, usando el comando:
 
 ```
 sudo docker compose run backend rails db:prepare
 ```
 
-Finalmente, para correr los test del backend, se ejecuta el comando:
+El comando prepara la base datos tanto para el entorno de desarrollo como de test. Finalmente, para correr los test del backend, se ejecuta el comando:
 
 ```
 sudo docker compose run backend rails test
 ```
 
+Esto ejecutará los test ubicados en la carpeta backend/test. 
+
 ### Testing en ReactJS
 
-Teniendo el contenedor funcionando, se pueden ejecutar los test usando el comando:
+Similar a lo que se hizo con el backend, se pueden ejecutar tests con npm. Teniendo el contenedor funcionando, se debe utilizar el siguiente comando:
 
 ```
 sudo docker compose run frontend npm test
 ```
 
+Esto ejecutará todos los test ubicados en la carpeta frontend, que terminen con la extensión .test.js.
+
 ## Herramientas Linter
 
 ### Linter en Ruby on Rails
 
-La herramienta utilizada es Rubocop. El siguiente comando es utilizado para explorar correcciones en el código:
+La herramienta de lint utilizada para el backend es Rubocop. El siguiente comando es utilizado para explorar correcciones en el código y reparar las incidencias automáticamente:
 
 ```
 cd backend
@@ -68,7 +72,7 @@ bundle exec rubocop . --autocorrect
 
 ### Linter en React JS
 
-La herramienta utilizada es ESLint. Se definió el siguiente comando para revisar el código:
+La herramienta de lint utilizada en el frontend es ESLint. En el archivo package.json se definió el siguiente comando para revisar el código y arreglar código de forma automática:
 
 ```
 cd frontend
