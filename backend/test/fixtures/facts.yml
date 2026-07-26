@@ -1,9 +1,5 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  fact_key: MyString
-  fact_text: MyString
-
-two:
-  fact_key: MyString
-  fact_text: MyString
+  fact_key: "0-0"
+  fact_text: "Cats are animals"

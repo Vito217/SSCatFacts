@@ -1,14 +1,14 @@
-import './App.css';
+import "./App.css";
 import Login from "./components/login/Login";
 import Landing from "./components/landing/Landing";
 import Index from "./components/landing/Index";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AuthProvider from './context/authProvider';
-import FactsList from './components/landing/FactsList';
-import CreateAccount from './components/login/CreateAccount';
-import Likes from './components/landing/Likes';
-import Popular from './components/landing/Popular';
-import Welcome from './components/landing/Welcome';
+import AuthProvider from "./context/authProvider";
+import FactsList from "./components/landing/FactsList";
+import CreateAccount from "./components/login/CreateAccount";
+import Likes from "./components/landing/Likes";
+import Popular from "./components/landing/Popular";
+import Welcome from "./components/landing/Welcome";
 
 function App() {
   return (

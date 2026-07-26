@@ -3,7 +3,6 @@ class FactsController < ApplicationController
 
     # Use this function to register and unregister likes
     def like
-
         # Needs user session
         if session[:user_id]
 
@@ -22,7 +21,7 @@ class FactsController < ApplicationController
             if like
                 if params[:checked]
                     # if user wants to like it again, do nothing
-                    render json: {message: 'Already liked'}, status: :ok
+                    render json: { message: "Already liked" }, status: :ok
                 else
                     # else, dislike it (destroy entry)
                     like.destroy
@@ -31,43 +30,40 @@ class FactsController < ApplicationController
             else
                 if params[:checked]
                     # like the fact (send to database)
-                    like = Like.new({user: user, fact: fact})
+                    like = Like.new({ user: user, fact: fact })
                     like.save
                     render json: { logged_in: true, user: user, likes: user.likes.as_json(include: :fact) }
                 else
                     # fact is already disliked. do nothing
-                    render json: {message: 'Already disliked'}, status: :ok
+                    render json: { message: "Already disliked" }, status: :ok
                 end
             end
         else
-            render json: {message: 'Not logged in'}, status: :unauthorized
+            render json: { message: "Not logged in" }, status: :unauthorized
         end
     end
 
     # use this function to get current user's likes
     def user_likes
-
         # Needs user session
         if session[:user_id]
             user = User.find(session[:user_id])
             render json: { likes: user.likes.as_json(include: :fact) }
         else
-            render json: {message: 'Not logged in'}, status: :unauthorized
+            render json: { message: "Not logged in" }, status: :unauthorized
         end
-    
     end
 
     # use this function to get all liked facts, sorted by most popular
     def popular_facts
-
         # Needs user session
         if session[:user_id]
-            
+
             facts = Fact.left_joins(:likes).group(:id).order(Arel.sql("COUNT (likes.id) DESC"))
-            render json: {facts: facts}, status: :ok
+            render json: { facts: facts }, status: :ok
 
         else
-            render json: {message: 'Not logged in'}, status: :unauthorized
+            render json: { message: "Not logged in" }, status: :unauthorized
         end
     end
 

@@ -25,11 +25,10 @@ module Backend
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.api_only = false
-    
+
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.use ActionDispatch::Session::CookieStore, key: '_namespace_key'
+    config.middleware.use ActionDispatch::Session::CookieStore, key: "_namespace_key"
 
     config.action_dispatch.cookies_same_site_protection = :strict
-
   end
 end

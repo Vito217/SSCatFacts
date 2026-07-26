@@ -83,5 +83,4 @@ Rails.application.configure do
     "localhost",             # The localhost reserved domain.
     "backend"   # Allow this to be addressed when running in containers via docker-compose.yml.
   ]
-
 end

@@ -65,6 +65,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'bcrypt'
+gem "bcrypt"
 
-gem 'rack-cors'
+gem "rack-cors"

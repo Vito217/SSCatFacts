@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :users, only: [:create]
+  resources :users, only: [ :create ]
   post "/api/login", to: "sessions#create"
   post "/api/createuser", to: "users#create"
   get "/api/checkuserlogin", to: "sessions#is_logged_in?"
@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   post "/api/register_like", to: "facts#like"
   get "/api/get_user_likes", to: "facts#user_likes"
   get "/api/get_popular_facts", to: "facts#popular_facts"
-
 end
